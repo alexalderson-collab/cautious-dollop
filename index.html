@@ -60,9 +60,12 @@
     font-size: 4rem;
     font-weight: bold;
     color: rgba(255, 215, 0, 0.5);
+    -webkit-text-stroke: 1px black;      /* Black border */
+    text-stroke: 1px black;
     white-space: nowrap;
     opacity: 0;
     animation: diagonalCascade 2s forwards;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.7); /* subtle gold glow */
   }
 
   @keyframes diagonalCascade {
