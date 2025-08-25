@@ -38,18 +38,80 @@
       padding-left: 1.5rem;
     }
   </style>
+
+  <!-- new stuff below -->
+  <style>
+  /* 🔲 Transparent overlay container */
+  .overlay-text {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ✨ Animated text */
+  .background-text {
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+    opacity: 0;
+    animation: diagonalCascade 2s forwards;
+  }
+
+  @keyframes diagonalCascade {
+    0% {
+      transform: translate(-200px, -200px) rotate(-45deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    30% {
+      transform: translate(0, 0) rotate(-45deg);
+      opacity: 1;
+    }
+    70% {
+      transform: translate(0, 300px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(0, 500px);
+      opacity: 0;
+    }
+  }
+
+  /* Remove the overlay after animation */
+  .overlay-text.hide {
+    display: none;
+  }
+</style>
+<!-- new stuff above -->
+  
 </head>
 <body>
+  <div class="overlay-text" id="overlayText">
+  <div class="background-text">Cascading Text</div>
+  </div>
+
 
   <h1>BT149 </BR>Resource Guide</h1>
 
+  <!-- new stuff below -->
   <div class="subject">
     <details>
       <summary>1. Problem Solving</summary>
       <div class="placeholder"> Identify </BR> Approach </BR> Resources </BR> Plan </BR> Assess/Measure </div>
     </details>
   </div>
-
+  <!-- new stuff above --> 
+  
   <div class="subject">
     <details>
       <summary>2. Workplace Communications</summary>
@@ -223,6 +285,16 @@ them to consider suicide when they are not considering it already.</p>
     </details>
   </div>
 
+<!-- new stuff here down -->  
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('overlayText').classList.add('hide');
+    }, 2000);
+  });
+</script>
+
+  
 </body>
 </html>
 
